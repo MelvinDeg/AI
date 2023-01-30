@@ -178,11 +178,11 @@ public class PlayerAgent : Agent
 
         if (hasTreasure)
         {
-            AddReward(Vector3.Dot(velocity_direction, chamberD.transform.position.normalized) * rewardMoving );
+            AddReward(Vector3.Dot(velocity_direction, chamberD.transform.localPosition.normalized) * rewardMoving );
 
         } else
         {
-              AddReward(Vector3.Dot(velocity_direction, chamberD.transform.position.normalized) * rewardMoving );
+              AddReward(Vector3.Dot(velocity_direction, chamberD.transform.localPosition.normalized) * rewardMoving );
         }
 
 
@@ -230,42 +230,42 @@ public class PlayerAgent : Agent
         float rotation = transform.rotation.y;
         sensor.AddObservation(rotation);
 
-        //Observe the agent's position (3 observations)
-        Vector3 position = transform.position;
-        sensor.AddObservation(position);
+        //Observe the agent's localPosition (3 observations)
+        Vector3 localPosition = transform.localPosition;
+        sensor.AddObservation(localPosition);
 
         //NOT normalized or normalized
 
         //Distance Chamber
 
-        //Vector3 chamberDist = transform.position - GameObject.FindGameObjectWithTag(chamberColour).transform.position;
+        //Vector3 chamberDist = transform.localPosition - GameObject.FindGameObjectWithTag(chamberColour).transform.localPosition;
 
         //(1 observation)
         //sensor.AddObservation(chamberDist.magnitude);
 
         //Direction Chamber
 
-        float chamberDir = Vector3.Dot(transform.position.normalized , chamberD.transform.position.normalized);
+        float chamberDir = Vector3.Dot(transform.localPosition.normalized , chamberD.transform.localPosition.normalized);
        
         //(1 observation)     
         sensor.AddObservation(chamberDir); //Maybe change
 
         //Direction Chamber Distance
 
-        float chamberDis = transform.position.magnitude - chamberD.transform.position.magnitude;
+        float chamberDis = transform.localPosition.magnitude - chamberD.transform.localPosition.magnitude;
 
         //(1 observation)
         sensor.AddObservation(chamberDis);
 
 
-        float targetchamberDir = Vector3.Dot(transform.position.normalized, chamberT.transform.position.normalized);
+        float targetchamberDir = Vector3.Dot(transform.localPosition.normalized, chamberT.transform.localPosition.normalized);
 
         //(1 observation)
         sensor.AddObservation(targetchamberDir); //Maybe change
 
         //Target Chamber Distance
 
-        float targetchamberDis = transform.position.magnitude - chamberD.transform.position.magnitude;
+        float targetchamberDis = transform.localPosition.magnitude - chamberD.transform.localPosition.magnitude;
 
         //(1 observation)
         sensor.AddObservation(targetchamberDis);
@@ -309,21 +309,21 @@ public class PlayerAgent : Agent
     private void Update()
     {
         //TODO: Draw a line to HomeChamber and Target Chamber
-        Debug.DrawLine(transform.position, chamberT.transform.position, Color.green);
-        Debug.DrawLine(transform.position, chamberD.transform.position, Color.red);
+        Debug.DrawLine(transform.localPosition, chamberT.transform.localPosition, Color.green);
+        Debug.DrawLine(transform.localPosition, chamberD.transform.localPosition, Color.red);
         CurrentEpisodeSteps = Academy.Instance.StepCount;
     }
 
 
     void OnCollisionEnter(Collision other)
     {
-        if (gameObject.CompareTag("RedPlayer") && transform.position.x >= 5 && other.collider.CompareTag("BluePlayer"))
+        if (gameObject.CompareTag("RedPlayer") && transform.localPosition.x >= 5 && other.collider.CompareTag("BluePlayer"))
         {
             AddReward(rewardGettingCaught);
             StartCoroutine(prison.PrisonTime(-18, 2, gameObject));
             
         }
-        else if (gameObject.CompareTag("BluePlayer") && transform.position.x <= -5 && other.collider.CompareTag("RedPlayer"))
+        else if (gameObject.CompareTag("BluePlayer") && transform.localPosition.x <= -5 && other.collider.CompareTag("RedPlayer"))
         {
             AddReward(rewardGettingCaught);
             StartCoroutine(prison.PrisonTime(18, -2, gameObject));

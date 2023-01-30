@@ -97,11 +97,11 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (gameObject.CompareTag("RedPlayer") && transform.position.x >= 5 && col.collider.CompareTag("BluePlayer"))
+        if (gameObject.CompareTag("RedPlayer") && transform.localPosition.x >= 5 && col.collider.CompareTag("BluePlayer"))
         {
             StartCoroutine(prison.PrisonTime(-18, 2, gameObject));
 
-        } else if (gameObject.CompareTag("BluePlayer") && transform.position.x <= -5 && col.collider.CompareTag("RedPlayer"))
+        } else if (gameObject.CompareTag("BluePlayer") && transform.localPosition.x <= -5 && col.collider.CompareTag("RedPlayer"))
         {
             StartCoroutine(prison.PrisonTime(18, -2, gameObject));
         }
