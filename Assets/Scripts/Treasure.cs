@@ -20,7 +20,7 @@ public class Treasure : MonoBehaviour
        
     }
 
-    void OnTriggerEnter(Collider other)
+    /*void OnTriggerEnter(Collider other)
     {
         GameObject agent = other.gameObject;
         //PlayerAgent agentScript = agent.GetComponent<PlayerAgent>();
@@ -39,7 +39,7 @@ public class Treasure : MonoBehaviour
             player.treasureDisplay.SetActive(true);
         }
 
-    }
+    }*/
     /// <summary>
     /// Return Treasure to Chamber
     /// </summary>
@@ -53,7 +53,6 @@ public class Treasure : MonoBehaviour
             player.treasure = null;
             player.treasureDisplay.SetActive(false);
         
-
     }
 
 }

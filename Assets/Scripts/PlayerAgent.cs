@@ -15,6 +15,8 @@ public class PlayerRewards
     public float rewardRunningIntoBoundary;
     public float rewardGettingCaught;
     public float rewardWinningGame;
+
+
 }
 
 
@@ -180,20 +182,19 @@ public class PlayerAgent : Agent
         Vector3 velocity_direction = rigidbody.velocity.normalized;
 
 
-        if (hasTreasure)
+        /*if (hasTreasure)
         {
             AddReward(Vector3.Dot(velocity_direction, (chamberD.transform.localPosition - transform.localPosition).normalized) * rewardMoving );
 
         } else
         {
            AddReward(Vector3.Dot(velocity_direction, (chamberT.transform.localPosition - transform.localPosition).normalized * rewardMoving ));
-        } 
+        }  */
 
 
         // Gives the current speed of the player, used to create a terminal velocity for the player
         currentVelosity = rigidbody.velocity.magnitude;
-
-        
+       
         //Calculate local movement
         Vector3 move = transform.forward * vectorAction[0];
 
@@ -240,14 +241,14 @@ public class PlayerAgent : Agent
 
         //Direction Chamber
 
-        float chamberDir = Vector3.Dot(transform.forward, (chamberD.transform.localPosition- transform.localPosition).normalized);
+        float chamberDir = Vector3.Dot(transform.forward, (chamberD.transform.localPosition- transform.localPosition).normalized); //(transform.position - chamberD.transformD.position).normalize
        
-        //(1 observation)     
+        //(1 observation)
         sensor.AddObservation(chamberDir);
 
         //Distance Chamber Distance
 
-        float chamberDis = -(transform.localPosition - chamberD.transform.localPosition).magnitude;
+        float chamberDis = (transform.localPosition - chamberD.transform.localPosition).magnitude; //transform.localposition.magnitude - chamberD.localpositon.magnitude.
 
         //(1 observation)
         sensor.AddObservation(chamberDis);
@@ -260,7 +261,7 @@ public class PlayerAgent : Agent
 
         //Target Chamber Distance
 
-        float targetchamberDis = -(transform.localPosition - chamberT.transform.localPosition).magnitude;
+        float targetchamberDis = (transform.localPosition - chamberT.transform.localPosition).magnitude;
 
         //(1 observation)
         sensor.AddObservation(targetchamberDis);
@@ -307,7 +308,11 @@ public class PlayerAgent : Agent
         Debug.DrawLine(transform.position, chamberT.transform.position, Color.green);
         Debug.DrawLine(transform.position, chamberD.transform.position, Color.red);
         CurrentEpisodeSteps = Academy.Instance.StepCount;
-        TargetBlue = -(transform.localPosition - chamberT.transform.localPosition).magnitude;
+
+
+          float targetchamberDir = Vector3.Dot(transform.forward, (chamberT.transform.localPosition - transform.localPosition).normalized);
+
+        TargetBlue = targetchamberDir;
     }
 
 

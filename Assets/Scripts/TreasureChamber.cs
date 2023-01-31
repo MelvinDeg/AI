@@ -27,6 +27,8 @@ public class TreasureChamber : MonoBehaviour
         Debug.Log(tresures.Length); */
         chamberColor = gameObject.tag;
 
+        
+
         envConfig = gameObject.GetComponentInParent<EnvConfig>();
         gameManager = envConfig.gameManager;
     }
@@ -68,6 +70,9 @@ public class TreasureChamber : MonoBehaviour
         if (gameObject.CompareTag(player.chamberColour +"C") && player.hasTreasure)
         {
             print("plus 1");
+
+            
+
             
 
             player.AddReward(player.rewardtakingTreasureToOwnTreasureChamber);
@@ -89,11 +94,33 @@ public class TreasureChamber : MonoBehaviour
             //if(gameObject.CompareTag(player.targetColour + "c"))
         }
 
-        //Maybe include that the Agent can not stack rewards.
+    
         else if (gameObject.CompareTag(player.targetColour + "C") && !player.hasTreasure)
         {
-            player.AddReward(player.rewardInsideTreasureChamber);
-            print("Blue Base");
+
+            foreach (GameObject treasure in tresures)
+            {
+                if (treasure.activeSelf)
+                {
+                    player.treasure = treasure;
+
+                    // Checks that the treasure's chamber has the correct tag and that the player does not already carry one
+
+
+                        player.AddReward(player.rewardtakingTreasureFromTreasureChamber);
+                        // Activates the visual cube that the player carries and hides the other one
+                        treasure.SetActive(false);
+                        player.hasTreasure = true;
+                        player.treasureDisplay.SetActive(true);
+                        break;
+                    
+                    
+                }
+
+                }
+
+
+                print("Blue Base");
         }
 
     }

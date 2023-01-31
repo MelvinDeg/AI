@@ -9,7 +9,6 @@ ScriptsOnlyBuild:
     - TreasureChamber
     Unity.ML-Agents.dll:
     - Unity.MLAgents.DecisionRequester
-    - Unity.MLAgents.Demonstrations.DemonstrationRecorder
     - Unity.MLAgents.Policies.BehaviorParameters
     - Unity.MLAgents.Sensors.RayPerceptionSensorComponent3D
     Unity.Rider.Editor.dll:
@@ -19,18 +18,10 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    - TMPro.TextMeshProUGUI
-    Unity.Timeline.Editor.dll:
-    - TimelineProjectSettings
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
-    UnityEngine.UI.dll:
-    - UnityEngine.EventSystems.EventSystem
-    - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.CanvasScaler
-    - UnityEngine.UI.GraphicRaycaster
   sceneClasses:
     Assets/Scenes/SampleScene_no_bluePlayer.unity:
     - Class: 1
@@ -68,43 +59,31 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1884}
+      Script: {instanceID: 1882}
     - Class: 114
-      Script: {instanceID: 2078}
+      Script: {instanceID: 2076}
     - Class: 114
-      Script: {instanceID: 2092}
+      Script: {instanceID: 2090}
     - Class: 114
-      Script: {instanceID: 2244}
+      Script: {instanceID: 2242}
     - Class: 114
-      Script: {instanceID: 2652}
+      Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2764}
+      Script: {instanceID: 3376}
     - Class: 114
-      Script: {instanceID: 2814}
+      Script: {instanceID: 3404}
     - Class: 114
-      Script: {instanceID: 2870}
+      Script: {instanceID: 4336}
     - Class: 114
-      Script: {instanceID: 3050}
+      Script: {instanceID: 4764}
     - Class: 114
-      Script: {instanceID: 3230}
-    - Class: 114
-      Script: {instanceID: 3318}
-    - Class: 114
-      Script: {instanceID: 3380}
-    - Class: 114
-      Script: {instanceID: 3408}
-    - Class: 114
-      Script: {instanceID: 4340}
-    - Class: 114
-      Script: {instanceID: 4768}
+      Script: {instanceID: 5126}
     - Class: 114
       Script: {instanceID: 5130}
     - Class: 114
-      Script: {instanceID: 5134}
+      Script: {instanceID: 5498}
     - Class: 114
-      Script: {instanceID: 5502}
-    - Class: 114
-      Script: {instanceID: 5714}
+      Script: {instanceID: 5710}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -117,13 +96,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: ae83e830e7a90c0aff918c4c2e520825
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: GraphicRaycaster
   - hash:
       serializedVersion: 2
       Hash: 5d470960c5db2f9c229c37ff99d0996e
@@ -204,7 +183,7 @@ ScriptsOnlyBuild:
     className: BehaviorParameters
   - hash:
       serializedVersion: 2
-      Hash: c818b94bd067f32854b675affda2bde5
+      Hash: bb6f981e325f90d30dd3105d4aba8d38
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerAgent
@@ -304,12 +283,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestRunner.Utils
     className: TestRunCallbackListener
-  - hash:
-      serializedVersion: 2
-      Hash: ae83e830e7a90c0aff918c4c2e520825
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: GraphicRaycaster
   - hash:
       serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
@@ -661,4 +634,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene_no_bluePlayer.unity
-  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_244/AI.exe
+  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_new_no_reward_moving_positive_bigger_area/AI.exe
