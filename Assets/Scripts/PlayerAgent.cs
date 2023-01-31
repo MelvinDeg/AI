@@ -80,14 +80,16 @@ public class PlayerAgent : Agent
     [HideInInspector]
     public float rewardtakingTreasureToOwnTreasureChamber = 4f;
     [HideInInspector]
-    public float rewardRunningIntoBoundary = -0.2f;
+    public float rewardRunningIntoBoundary = -0.4f;
     [HideInInspector]
     public float rewardGettingCaught = -0.4f; //Is not Used because I want to make the training enviroment more likly to succed.
     [HideInInspector]
     public float rewardWinningGame = 20f;
 
     [HideInInspector]
-    public float rewardMoving = 0.005f;
+    public float rewardMoving = 0.0002f; 
+
+    //AI_237 - AI_238 rewardMoving var satt till x= 0.005 max reward 25f 
 
     //5000*x = 1
     // x= 0.005
@@ -101,6 +103,8 @@ public class PlayerAgent : Agent
 
     //Whether the agent is frozen (intentionally not flying)
     private bool frozen = false;
+
+    public float TargetBlue = 0.0f; 
 
 
     private EnvConfig envConfig;
@@ -178,12 +182,12 @@ public class PlayerAgent : Agent
 
         if (hasTreasure)
         {
-            AddReward(Vector3.Dot(velocity_direction, chamberD.transform.localPosition.normalized) * rewardMoving );
+            AddReward(Vector3.Dot(velocity_direction, (chamberD.transform.localPosition - transform.localPosition).normalized) * rewardMoving );
 
         } else
         {
-              AddReward(Vector3.Dot(velocity_direction, chamberD.transform.localPosition.normalized) * rewardMoving );
-        }
+           AddReward(Vector3.Dot(velocity_direction, (chamberT.transform.localPosition - transform.localPosition).normalized * rewardMoving ));
+        } 
 
 
         // Gives the current speed of the player, used to create a terminal velocity for the player
@@ -234,38 +238,29 @@ public class PlayerAgent : Agent
         Vector3 localPosition = transform.localPosition;
         sensor.AddObservation(localPosition);
 
-        //NOT normalized or normalized
-
-        //Distance Chamber
-
-        //Vector3 chamberDist = transform.localPosition - GameObject.FindGameObjectWithTag(chamberColour).transform.localPosition;
-
-        //(1 observation)
-        //sensor.AddObservation(chamberDist.magnitude);
-
         //Direction Chamber
 
-        float chamberDir = Vector3.Dot(transform.localPosition.normalized , chamberD.transform.localPosition.normalized);
+        float chamberDir = Vector3.Dot(transform.forward, (chamberD.transform.localPosition- transform.localPosition).normalized);
        
         //(1 observation)     
-        sensor.AddObservation(chamberDir); //Maybe change
+        sensor.AddObservation(chamberDir);
 
-        //Direction Chamber Distance
+        //Distance Chamber Distance
 
-        float chamberDis = transform.localPosition.magnitude - chamberD.transform.localPosition.magnitude;
+        float chamberDis = -(transform.localPosition - chamberD.transform.localPosition).magnitude;
 
         //(1 observation)
         sensor.AddObservation(chamberDis);
 
-
-        float targetchamberDir = Vector3.Dot(transform.localPosition.normalized, chamberT.transform.localPosition.normalized);
+        //Target chamber direction
+        float targetchamberDir = Vector3.Dot(transform.forward, (chamberT.transform.localPosition - transform.localPosition).normalized);
 
         //(1 observation)
         sensor.AddObservation(targetchamberDir); //Maybe change
 
         //Target Chamber Distance
 
-        float targetchamberDis = transform.localPosition.magnitude - chamberD.transform.localPosition.magnitude;
+        float targetchamberDis = -(transform.localPosition - chamberT.transform.localPosition).magnitude;
 
         //(1 observation)
         sensor.AddObservation(targetchamberDis);
@@ -309,10 +304,12 @@ public class PlayerAgent : Agent
     private void Update()
     {
         //TODO: Draw a line to HomeChamber and Target Chamber
-        Debug.DrawLine(transform.localPosition, chamberT.transform.localPosition, Color.green);
-        Debug.DrawLine(transform.localPosition, chamberD.transform.localPosition, Color.red);
+        Debug.DrawLine(transform.position, chamberT.transform.position, Color.green);
+        Debug.DrawLine(transform.position, chamberD.transform.position, Color.red);
         CurrentEpisodeSteps = Academy.Instance.StepCount;
+        TargetBlue = -(transform.localPosition - chamberT.transform.localPosition).magnitude;
     }
+
 
 
     void OnCollisionEnter(Collision other)

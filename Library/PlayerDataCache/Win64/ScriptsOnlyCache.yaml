@@ -20,6 +20,8 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    Unity.Timeline.Editor.dll:
+    - TimelineProjectSettings
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -66,43 +68,43 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1880}
+      Script: {instanceID: 1884}
     - Class: 114
-      Script: {instanceID: 2074}
+      Script: {instanceID: 2078}
     - Class: 114
-      Script: {instanceID: 2088}
+      Script: {instanceID: 2092}
     - Class: 114
-      Script: {instanceID: 2240}
+      Script: {instanceID: 2244}
     - Class: 114
-      Script: {instanceID: 2648}
+      Script: {instanceID: 2652}
     - Class: 114
-      Script: {instanceID: 2760}
+      Script: {instanceID: 2764}
     - Class: 114
-      Script: {instanceID: 2810}
+      Script: {instanceID: 2814}
     - Class: 114
-      Script: {instanceID: 2866}
+      Script: {instanceID: 2870}
     - Class: 114
-      Script: {instanceID: 3046}
+      Script: {instanceID: 3050}
     - Class: 114
-      Script: {instanceID: 3226}
+      Script: {instanceID: 3230}
     - Class: 114
-      Script: {instanceID: 3314}
+      Script: {instanceID: 3318}
     - Class: 114
-      Script: {instanceID: 3376}
+      Script: {instanceID: 3380}
     - Class: 114
-      Script: {instanceID: 3404}
+      Script: {instanceID: 3408}
     - Class: 114
-      Script: {instanceID: 4336}
+      Script: {instanceID: 4340}
     - Class: 114
-      Script: {instanceID: 4764}
-    - Class: 114
-      Script: {instanceID: 5126}
+      Script: {instanceID: 4768}
     - Class: 114
       Script: {instanceID: 5130}
     - Class: 114
-      Script: {instanceID: 5498}
+      Script: {instanceID: 5134}
     - Class: 114
-      Script: {instanceID: 5710}
+      Script: {instanceID: 5502}
+    - Class: 114
+      Script: {instanceID: 5714}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -659,4 +661,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene_no_bluePlayer.unity
-  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_with_dot_reward_moving_to_target_localPos/AI.exe
+  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_244/AI.exe
