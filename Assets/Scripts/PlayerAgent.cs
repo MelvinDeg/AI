@@ -85,13 +85,15 @@ public class PlayerAgent : Agent
     public float rewardtakingTreasureToOwnTreasureChamber = 4f;
     [HideInInspector]
     public float penaltyRunningIntoBoundary = -0.4f;
+
     [HideInInspector]
-    public float rewardGettingCaught = -0.4f; //Is not Used because I want to make the training enviroment more likly to succed.
+    //NOT USED
+    public float rewardGettingCaught = -0.4f; //Is not Used because I want to make the training enviroment more likly to succeed.
     [HideInInspector]
     public float rewardWinningGame = 20f;
 
-    [HideInInspector]
-    public float rewardMoving = 0.0002f; 
+    /*[HideInInspector]
+    public float rewardMoving = 0.0002f; */
 
 
     [HideInInspector]
