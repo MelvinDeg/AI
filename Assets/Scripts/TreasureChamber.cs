@@ -60,7 +60,12 @@ public class TreasureChamber : MonoBehaviour
     {
         //GameObject agent = other.gameObject;
         //PlayerAgent agentScript = agent.GetComponent<PlayerAgent>();
+        
         PlayerAgent player = other.GetComponent<PlayerAgent>();
+
+        //To remove Error in the start.
+        if (player == null) return;
+
         // Checks that the treasureChamber has the correct tag and that the player does not already carry one treasure
         // 
 
@@ -71,10 +76,7 @@ public class TreasureChamber : MonoBehaviour
         {
             print("plus 1");
 
-            
-
-            
-
+ 
             player.AddReward(player.rewardtakingTreasureToOwnTreasureChamber);
             if (other.CompareTag("BluePlayer"))
             {
@@ -113,12 +115,10 @@ public class TreasureChamber : MonoBehaviour
                         player.hasTreasure = true;
                         player.treasureDisplay.SetActive(true);
                         break;
-                    
-                    
+                                       
                 }
 
                 }
-
 
                 print("Blue Base");
         }

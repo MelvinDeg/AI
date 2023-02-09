@@ -25,7 +25,9 @@ public class PlayerRewards
 /// A Player Machine Learning Agent
 /// </summary>
 public class PlayerAgent : Agent
+
 {
+    
     [Tooltip("Maxium velosity to the agent")]
     public int maxVelosity = 8;
 
@@ -42,7 +44,7 @@ public class PlayerAgent : Agent
 
     [Tooltip("Whether the agent has Treasure or not")]
     public bool hasTreasure = false;
-
+ 
     [Tooltip("The treasure gameobject from the target")]
     public GameObject treasure;
 
@@ -82,7 +84,7 @@ public class PlayerAgent : Agent
     [HideInInspector]
     public float rewardtakingTreasureToOwnTreasureChamber = 4f;
     [HideInInspector]
-    public float rewardRunningIntoBoundary = -0.4f;
+    public float penaltyRunningIntoBoundary = -0.4f;
     [HideInInspector]
     public float rewardGettingCaught = -0.4f; //Is not Used because I want to make the training enviroment more likly to succed.
     [HideInInspector]
@@ -90,6 +92,11 @@ public class PlayerAgent : Agent
 
     [HideInInspector]
     public float rewardMoving = 0.0002f; 
+
+
+    [HideInInspector]
+    public float penaltyTreasureInEnemyAreaWithTreasure = -0.0001f;
+
 
     //AI_237 - AI_238 rewardMoving var satt till x= 0.005 max reward 25f 
 
@@ -99,6 +106,8 @@ public class PlayerAgent : Agent
     [HideInInspector]
     public int CurrentEpisodeSteps;
 
+    
+
 
     private GameObject chamberT;
     private GameObject chamberD;
@@ -106,7 +115,9 @@ public class PlayerAgent : Agent
     //Whether the agent is frozen (intentionally not flying)
     private bool frozen = false;
 
-    public float TargetBlue = 0.0f; 
+    public float TargetBlue = 0.0f;
+
+    public bool InEnemyAreaWithTreasure = false;
 
 
     private EnvConfig envConfig;
@@ -134,6 +145,8 @@ public class PlayerAgent : Agent
     /// </summary>
     public override void OnEpisodeBegin()
     {
+        //To not give negative reward forever.
+        InEnemyAreaWithTreasure = false;
         
         //Move to different Position depenting on team.
         if(gameObject.CompareTag("RedPlayer"))
@@ -152,8 +165,14 @@ public class PlayerAgent : Agent
         treasure = null;
         treasureDisplay.SetActive(false);
 
-            //Set all target Gameobject to true
-          foreach ( GameObject treasure in chamberT.GetComponent<TreasureChamber>().tresures )
+        //New AI_272 to reset all factors. 
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
+
+        transform.rotation = Quaternion.Euler(0f,90f,0f);
+
+        //Set all target Gameobject to true
+        foreach ( GameObject treasure in chamberT.GetComponent<TreasureChamber>().tresures )
         {
             treasure.SetActive(true);
         }
@@ -178,8 +197,12 @@ public class PlayerAgent : Agent
 
         if (frozen) return;
 
-        //Velocity of player agent
-        Vector3 velocity_direction = rigidbody.velocity.normalized;
+
+        if (InEnemyAreaWithTreasure)
+        {
+            print("has Treasure");
+            AddReward(penaltyTreasureInEnemyAreaWithTreasure);
+        } 
 
 
         /*if (hasTreasure)
@@ -239,6 +262,16 @@ public class PlayerAgent : Agent
         Vector3 localPosition = transform.localPosition;
         sensor.AddObservation(localPosition);
 
+        float velosityRb = rigidbody.velocity.magnitude;
+
+        //Observe the agent's speed (1 observation)
+        sensor.AddObservation(velosityRb);
+
+        Vector3 directionSpeed = rigidbody.velocity.normalized;
+
+        //Observe the direction of speed of the  agent's  (3 observation)
+        sensor.AddObservation(directionSpeed);
+
         //Direction Chamber
 
         float chamberDir = Vector3.Dot(transform.forward, (chamberD.transform.localPosition- transform.localPosition).normalized); //(transform.position - chamberD.transformD.position).normalize
@@ -257,14 +290,14 @@ public class PlayerAgent : Agent
         float targetchamberDir = Vector3.Dot(transform.forward, (chamberT.transform.localPosition - transform.localPosition).normalized);
 
         //(1 observation)
-        sensor.AddObservation(targetchamberDir); //Maybe change
+        //sensor.AddObservation(targetchamberDir); 
 
         //Target Chamber Distance
 
         float targetchamberDis = (transform.localPosition - chamberT.transform.localPosition).magnitude;
 
         //(1 observation)
-        sensor.AddObservation(targetchamberDis);
+        //sensor.AddObservation(targetchamberDis);
 
         //Observe whether the agent is in prison or not (1 observation)
         sensor.AddObservation(inPrision);
@@ -272,7 +305,10 @@ public class PlayerAgent : Agent
         //Observe whether the agent has a treasure (1 observation)
         sensor.AddObservation(hasTreasure);
 
-        //10 total observations
+        //Observe if in ememy are with treasure is true;
+        sensor.AddObservation(InEnemyAreaWithTreasure);
+
+        //13 total observations
     }
 
     /// <summary>
@@ -310,7 +346,7 @@ public class PlayerAgent : Agent
         CurrentEpisodeSteps = Academy.Instance.StepCount;
 
 
-          float targetchamberDir = Vector3.Dot(transform.forward, (chamberT.transform.localPosition - transform.localPosition).normalized);
+          float targetchamberDir = Vector3.Dot(transform.forward, (chamberD.transform.localPosition - transform.localPosition).normalized);
 
         TargetBlue = targetchamberDir;
     }
@@ -319,22 +355,58 @@ public class PlayerAgent : Agent
 
     void OnCollisionEnter(Collision other)
     {
+        print("Yeee");
+
         if (gameObject.CompareTag("RedPlayer") && transform.localPosition.x >= 5 && other.collider.CompareTag("BluePlayer"))
         {
+            print("NO!");
             AddReward(rewardGettingCaught);
             StartCoroutine(prison.PrisonTime(-18, 2, gameObject));
             
         }
         else if (gameObject.CompareTag("BluePlayer") && transform.localPosition.x <= -5 && other.collider.CompareTag("RedPlayer"))
         {
+            print("NO!");
             AddReward(rewardGettingCaught);
             StartCoroutine(prison.PrisonTime(18, -2, gameObject));
         }
         else
         {
-            AddReward(rewardRunningIntoBoundary);
+            print("Penalty Border");
+            AddReward(penaltyRunningIntoBoundary);
+        }
+
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.name == "bluefloor" && hasTreasure)
+        {
+            InEnemyAreaWithTreasure = false;
+        } else if(
+            other.gameObject.name == "bluefloor")
+        {
+// print("ExitBlueArea");
         }
     }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.name == "bluefloor" && hasTreasure)
+        {
+            InEnemyAreaWithTreasure = true;
+            //print("EnterBlueArea Treasure");
+        }
+        else if (
+           other.gameObject.name == "bluefloor")
+        {
+            //print("EnterBlueArea");
+        }
+    }
+
+
 
 
     //Red player compadedel.
