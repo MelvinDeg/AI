@@ -691,7 +691,7 @@ BoxCollider:
   m_GameObject: {fileID: 57895258}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 15
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   maxVelosity: 8
   moveForce: 8
   rotspeed: 120
@@ -1152,7 +1152,6 @@ MonoBehaviour:
   penaltyRunningIntoBoundary: -0.4
   rewardGettingCaught: -0.2
   rewardWinningGame: -4
-  rewardMoving: 0.005
   penaltyTreasureInEnemyAreaWithTreasure: -0.0002
   CurrentEpisodeSteps: 0
   TargetBlue: 0
@@ -2263,7 +2262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 15
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -2305,7 +2304,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   maxVelosity: 8
   moveForce: 8
   rotspeed: 120
@@ -2323,7 +2322,6 @@ MonoBehaviour:
   penaltyRunningIntoBoundary: -0.4
   rewardGettingCaught: -0.2
   rewardWinningGame: -4
-  rewardMoving: 0.005
   penaltyTreasureInEnemyAreaWithTreasure: -0.0002
   CurrentEpisodeSteps: 0
   TargetBlue: 0
@@ -3487,7 +3485,7 @@ BoxCollider:
   m_GameObject: {fileID: 346503095}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3599,7 +3597,7 @@ BoxCollider:
   m_GameObject: {fileID: 361490356}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3925,7 +3923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 15
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -3967,7 +3965,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   maxVelosity: 8
   moveForce: 8
   rotspeed: 120
@@ -3985,7 +3983,6 @@ MonoBehaviour:
   penaltyRunningIntoBoundary: -0.4
   rewardGettingCaught: -0.2
   rewardWinningGame: -4
-  rewardMoving: 0.005
   penaltyTreasureInEnemyAreaWithTreasure: -0.0002
   CurrentEpisodeSteps: 0
   TargetBlue: 0
@@ -8127,7 +8124,7 @@ BoxCollider:
   m_GameObject: {fileID: 825475343}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -9744,7 +9741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 15
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -9786,7 +9783,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   maxVelosity: 8
   moveForce: 8
   rotspeed: 120
@@ -9804,7 +9801,6 @@ MonoBehaviour:
   penaltyRunningIntoBoundary: -0.4
   rewardGettingCaught: -0.2
   rewardWinningGame: -4
-  rewardMoving: 0.005
   penaltyTreasureInEnemyAreaWithTreasure: -0.0002
   CurrentEpisodeSteps: 0
   TargetBlue: 0
@@ -9948,7 +9944,7 @@ BoxCollider:
   m_GameObject: {fileID: 1014234038}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -11250,7 +11246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 15
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -11292,7 +11288,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   maxVelosity: 8
   moveForce: 8
   rotspeed: 120
@@ -11310,7 +11306,6 @@ MonoBehaviour:
   penaltyRunningIntoBoundary: -0.4
   rewardGettingCaught: -0.2
   rewardWinningGame: -4
-  rewardMoving: 0.005
   penaltyTreasureInEnemyAreaWithTreasure: -0.0002
   CurrentEpisodeSteps: 0
   TargetBlue: 0
@@ -12781,7 +12776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 15
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -12823,7 +12818,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   maxVelosity: 8
   moveForce: 8
   rotspeed: 120
@@ -12841,7 +12836,6 @@ MonoBehaviour:
   penaltyRunningIntoBoundary: -0.4
   rewardGettingCaught: -0.2
   rewardWinningGame: -4
-  rewardMoving: 0.005
   penaltyTreasureInEnemyAreaWithTreasure: -0.0002
   CurrentEpisodeSteps: 0
   TargetBlue: 0
@@ -13658,7 +13652,7 @@ BoxCollider:
   m_GameObject: {fileID: 1419941631}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -17793,7 +17787,7 @@ BoxCollider:
   m_GameObject: {fileID: 1812118421}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -18184,7 +18178,7 @@ BoxCollider:
   m_GameObject: {fileID: 1828259652}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -18399,7 +18393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 15
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -18441,7 +18435,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   maxVelosity: 8
   moveForce: 8
   rotspeed: 120
@@ -18459,7 +18453,6 @@ MonoBehaviour:
   penaltyRunningIntoBoundary: -0.4
   rewardGettingCaught: -0.2
   rewardWinningGame: -4
-  rewardMoving: 0.005
   penaltyTreasureInEnemyAreaWithTreasure: -0.0002
   CurrentEpisodeSteps: 0
   TargetBlue: 0
@@ -22062,7 +22055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 15
+    VectorObservationSize: 10
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -22104,7 +22097,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   maxVelosity: 8
   moveForce: 8
   rotspeed: 120
@@ -22122,7 +22115,6 @@ MonoBehaviour:
   penaltyRunningIntoBoundary: -0.4
   rewardGettingCaught: -0.2
   rewardWinningGame: -4
-  rewardMoving: 0.005
   penaltyTreasureInEnemyAreaWithTreasure: -0.0002
   CurrentEpisodeSteps: 0
   TargetBlue: 0

@@ -200,11 +200,11 @@ public class PlayerAgent : Agent
         if (frozen) return;
 
 
-        if (InEnemyAreaWithTreasure)
+        /*if (InEnemyAreaWithTreasure)
         {
             print("has Treasure");
             AddReward(penaltyTreasureInEnemyAreaWithTreasure);
-        } 
+        } */
 
 
         /*if (hasTreasure)
@@ -267,12 +267,12 @@ public class PlayerAgent : Agent
         float velosityRb = rigidbody.velocity.magnitude;
 
         //Observe the agent's speed (1 observation)
-        sensor.AddObservation(velosityRb);
+        //sensor.AddObservation(velosityRb);
 
         Vector3 directionSpeed = rigidbody.velocity.normalized;
 
         //Observe the direction of speed of the  agent's  (3 observation)
-        sensor.AddObservation(directionSpeed);
+        //sensor.AddObservation(directionSpeed);
 
         //Direction Chamber
 
@@ -292,14 +292,14 @@ public class PlayerAgent : Agent
         float targetchamberDir = Vector3.Dot(transform.forward, (chamberT.transform.localPosition - transform.localPosition).normalized);
 
         //(1 observation)
-        //sensor.AddObservation(targetchamberDir); 
+        sensor.AddObservation(targetchamberDir); 
 
         //Target Chamber Distance
 
         float targetchamberDis = (transform.localPosition - chamberT.transform.localPosition).magnitude;
 
         //(1 observation)
-        //sensor.AddObservation(targetchamberDis);
+        sensor.AddObservation(targetchamberDis);
 
         //Observe whether the agent is in prison or not (1 observation)
         sensor.AddObservation(inPrision);
@@ -307,10 +307,10 @@ public class PlayerAgent : Agent
         //Observe whether the agent has a treasure (1 observation)
         sensor.AddObservation(hasTreasure);
 
-        //Observe if in ememy are with treasure is true;
-        sensor.AddObservation(InEnemyAreaWithTreasure);
+        //Observe if in ememy are with treasure is true; (1 observation)
+        //sensor.AddObservation(InEnemyAreaWithTreasure);
 
-        //13 total observations
+        //10 total observations
     }
 
     /// <summary>
