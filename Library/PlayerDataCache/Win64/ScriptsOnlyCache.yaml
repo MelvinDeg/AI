@@ -11,11 +11,6 @@ ScriptsOnlyBuild:
     - Unity.MLAgents.DecisionRequester
     - Unity.MLAgents.Policies.BehaviorParameters
     - Unity.MLAgents.Sensors.RayPerceptionSensorComponent3D
-    Unity.Recorder.Editor.dll:
-    - UnityEditor.Recorder.MovieRecorderEditor
-    - UnityEditor.Recorder.MovieRecorderSettings
-    - UnityEditor.Recorder.RecorderControllerSettings
-    - UnityEditor.Recorder.RecorderSettingsPrefsEditor
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -24,9 +19,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     UnityEditor.TestRunner.dll:
-    - TestRunner.Callbacks.WindowResultUpdaterDataHolder
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.CommandLineTest.RunData
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
   sceneClasses:
@@ -66,31 +59,31 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1882}
+      Script: {instanceID: 1880}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 2074}
     - Class: 114
-      Script: {instanceID: 2090}
+      Script: {instanceID: 2088}
     - Class: 114
-      Script: {instanceID: 2242}
+      Script: {instanceID: 2240}
     - Class: 114
-      Script: {instanceID: 2762}
+      Script: {instanceID: 2760}
     - Class: 114
-      Script: {instanceID: 3378}
+      Script: {instanceID: 3376}
     - Class: 114
-      Script: {instanceID: 3406}
+      Script: {instanceID: 3404}
     - Class: 114
-      Script: {instanceID: 4338}
+      Script: {instanceID: 4336}
     - Class: 114
-      Script: {instanceID: 4766}
+      Script: {instanceID: 4764}
     - Class: 114
-      Script: {instanceID: 5128}
+      Script: {instanceID: 5126}
     - Class: 114
-      Script: {instanceID: 5132}
+      Script: {instanceID: 5130}
     - Class: 114
-      Script: {instanceID: 5500}
+      Script: {instanceID: 5498}
     - Class: 114
-      Script: {instanceID: 5712}
+      Script: {instanceID: 5710}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -641,4 +634,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene_no_bluePlayer.unity
-  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_285/AI.exe
+  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_291/AI.exe

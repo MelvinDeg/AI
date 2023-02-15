@@ -84,7 +84,7 @@ public class PlayerAgent : Agent
     [HideInInspector]
     public float rewardtakingTreasureToOwnTreasureChamber = 4f;
     [HideInInspector]
-    public float penaltyRunningIntoBoundary = -0.4f;
+    public float penaltyRunningIntoBoundary = -0.2f;
 
     [HideInInspector]
     //NOT USED

@@ -1896,7 +1896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148757674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1013738651}
@@ -1918,10 +1918,12 @@ MonoBehaviour:
   m_DetectableTags:
   - Boundary
   - BluePlayer
-  m_RaysPerDirection: 4
-  m_MaxRayDegrees: 44
+  - RedC
+  - BlueC
+  m_RaysPerDirection: 7
+  m_MaxRayDegrees: 57
   m_SphereCastRadius: 0.1
-  m_RayLength: 20
+  m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
@@ -3064,7 +3066,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302889914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2134569521}
@@ -3086,10 +3088,12 @@ MonoBehaviour:
   m_DetectableTags:
   - Boundary
   - BluePlayer
-  m_RaysPerDirection: 4
-  m_MaxRayDegrees: 44
+  - RedC
+  - BlueC
+  m_RaysPerDirection: 7
+  m_MaxRayDegrees: 57
   m_SphereCastRadius: 0.1
-  m_RayLength: 20
+  m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
@@ -3839,7 +3843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369720550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1183929609}
@@ -3861,10 +3865,12 @@ MonoBehaviour:
   m_DetectableTags:
   - Boundary
   - BluePlayer
-  m_RaysPerDirection: 4
-  m_MaxRayDegrees: 44
+  - RedC
+  - BlueC
+  m_RaysPerDirection: 7
+  m_MaxRayDegrees: 57
   m_SphereCastRadius: 0.1
-  m_RayLength: 20
+  m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
@@ -7301,7 +7307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704268843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 193112870}
@@ -7323,10 +7329,12 @@ MonoBehaviour:
   m_DetectableTags:
   - Boundary
   - BluePlayer
-  m_RaysPerDirection: 4
-  m_MaxRayDegrees: 44
+  - RedC
+  - BlueC
+  m_RaysPerDirection: 7
+  m_MaxRayDegrees: 57
   m_SphereCastRadius: 0.1
-  m_RayLength: 20
+  m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
@@ -10847,7 +10855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137391356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 374464471}
@@ -10869,10 +10877,12 @@ MonoBehaviour:
   m_DetectableTags:
   - Boundary
   - BluePlayer
-  m_RaysPerDirection: 4
-  m_MaxRayDegrees: 44
+  - RedC
+  - BlueC
+  m_RaysPerDirection: 7
+  m_MaxRayDegrees: 57
   m_SphereCastRadius: 0.1
-  m_RayLength: 20
+  m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
@@ -11381,7 +11391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183929600}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 13.69, y: 1.5, z: -0}
+  m_LocalPosition: {x: -10, y: 1.5, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 677351635}
@@ -13559,7 +13569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415771324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 92977773}
@@ -13581,10 +13591,12 @@ MonoBehaviour:
   m_DetectableTags:
   - Boundary
   - BluePlayer
-  m_RaysPerDirection: 4
-  m_MaxRayDegrees: 44
+  - RedC
+  - BlueC
+  m_RaysPerDirection: 7
+  m_MaxRayDegrees: 57
   m_SphereCastRadius: 0.1
-  m_RayLength: 20
+  m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
@@ -16333,7 +16345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730071520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1353694216}
@@ -16355,10 +16367,12 @@ MonoBehaviour:
   m_DetectableTags:
   - Boundary
   - BluePlayer
-  m_RaysPerDirection: 4
-  m_MaxRayDegrees: 44
+  - RedC
+  - BlueC
+  m_RaysPerDirection: 7
+  m_MaxRayDegrees: 57
   m_SphereCastRadius: 0.1
-  m_RayLength: 20
+  m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
@@ -17865,7 +17879,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815692452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1850261557}
@@ -17887,10 +17901,12 @@ MonoBehaviour:
   m_DetectableTags:
   - Boundary
   - BluePlayer
-  m_RaysPerDirection: 4
-  m_MaxRayDegrees: 44
+  - RedC
+  - BlueC
+  m_RaysPerDirection: 7
+  m_MaxRayDegrees: 57
   m_SphereCastRadius: 0.1
-  m_RayLength: 20
+  m_RayLength: 100
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
