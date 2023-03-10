@@ -90,24 +90,13 @@ public class PlayerAgent : Agent
     [HideInInspector]
     public float rewardWinningGame = 20f;
 
-    /*[HideInInspector]
-    public float rewardMoving = 0.0002f; 
-
-    [HideInInspector]
-    public float penaltyTreasureInEnemyAreaWithTreasure = -0.0001f;
-
-    //AI_237 - AI_238 rewardMoving var satt till x= 0.005 max reward 25f 
-
-    //5000*x = 1
-    // x= 0.005 */
-
     [HideInInspector]
     public int CurrentEpisodeSteps;
 
     private GameObject chamberT;
     private GameObject chamberD;
 
-    //Whether the agent is frozen (intentionally not flying)
+    //Whether the agent is frozen (intentionally not moving)
     private bool frozen = false;
     public float TargetBlue = 0.0f;
     public bool InEnemyAreaWithTreasure = false;
@@ -186,25 +175,6 @@ public class PlayerAgent : Agent
 
 
         if (frozen) return;
-
-        static void dfasfd()
-        {
-            /*if (InEnemyAreaWithTreasure)
-{
-    print("has Treasure");
-    AddReward(penaltyTreasureInEnemyAreaWithTreasure);
-} */
-
-
-            /*if (hasTreasure)
-            {
-                AddReward(Vector3.Dot(velocity_direction, (chamberD.transform.localPosition - transform.localPosition).normalized) * rewardMoving );
-
-            } else
-            {
-               AddReward(Vector3.Dot(velocity_direction, (chamberT.transform.localPosition - transform.localPosition).normalized * rewardMoving ));
-            }  */
-        }
 
         // Gives the current speed of the player, used to create a terminal velocity for the player
         currentVelosity = rigidbody.velocity.magnitude;
@@ -397,44 +367,6 @@ public class PlayerAgent : Agent
         }
     }
 
-
-
-
-    //Red player compadedel.
-    /*private void OnTriggerEnter(Collider other)
-    {
-         if (other.gameObject.CompareTag("CloseToBlueC") && !hasTreasure)
-        {
-            AddReward(closeToTreasureChamber);
-            print("Near blue Chamber");
-        } else if(other.gameObject.CompareTag("CloseToRedC") && hasTreasure){
-            AddReward(closeToTreasureChamber);
-            print("Near Red Chamber");
-        } else if (other.gameObject.CompareTag("RedBase") && hasTreasure)
-        {
-            AddReward(insideZone);
-            print("Red Zone");
-        }
-        else if (other.gameObject.CompareTag("BlueBase") && !hasTreasure)
-        {
-            AddReward(insideZone);
-            print("Blue Zone");
-        } */
-
-
-    /*private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("CloseToBlueC") && !hasTreasure)
-        {
-            AddReward(-closeToTreasureChamber);
-            print("Exit Near blue Chamber");
-        }
-        else if (other.gameObject.CompareTag("CloseToRedC") && hasTreasure)
-        {
-            AddReward(-closeToTreasureChamber);
-            print("Exit Near Red Chamber");
-        }
-    } */
 }
 
 
