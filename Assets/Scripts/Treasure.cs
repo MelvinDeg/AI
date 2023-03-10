@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// A Single Treasure  stored in a <see cref="TreasureChamber"/>
+/// A Single Treasure is stored in a <see cref="TreasureChamber"/>
 /// </summary>
 public class Treasure : MonoBehaviour
 {
@@ -20,26 +20,6 @@ public class Treasure : MonoBehaviour
        
     }
 
-    /*void OnTriggerEnter(Collider other)
-    {
-        GameObject agent = other.gameObject;
-        //PlayerAgent agentScript = agent.GetComponent<PlayerAgent>();
-        PlayerAgent player = other.GetComponent<PlayerAgent>();
-        //Save Reference to Treasure
-        player.treasure = gameObject;
-
-        // Checks that the treasure's chamber has the correct tag and that the player does not already carry one
-
-        if (gameObject.CompareTag(player.targetColour) && player.hasTreasure == false)
-        {
-            player.AddReward(player.rewardtakingTreasureFromTreasureChamber);
-            // Activates the visual cube that the player carries and hides the other one
-            gameObject.SetActive(false);
-            player.hasTreasure = true;
-            player.treasureDisplay.SetActive(true);
-        }
-
-    }*/
     /// <summary>
     /// Return Treasure to Chamber
     /// </summary>

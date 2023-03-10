@@ -36,7 +36,7 @@ MonoBehaviour:
   m_Name: Movie (1)
   m_EditorClassIdentifier: 
   enabled: 1
-  take: 5
+  take: 10
   captureEveryNthFrame: 1
   fileNameGenerator:
     m_Path:
@@ -44,7 +44,7 @@ MonoBehaviour:
       m_Leaf: Recordings
       m_ForceAssetFolder: 0
       m_AbsolutePath: 
-    m_FileName: movie_<Take>
+    m_FileName: AI_293
   outputFormat: 0
   videoBitRateMode: 1
   captureAlpha: 0

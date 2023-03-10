@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public int durationOfGame = 10;
     public int secLeft;
     public float timer = 0.0f;
-    private float period = 1.0f;
+    private readonly float period = 1.0f;
     public int redScore = 0;
     public int blueScore = 0;
     private bool gameOver = false;
@@ -34,11 +34,11 @@ public class GameManager : MonoBehaviour
 
         if (activeTimer)
         {
-            StartCoroutine("DoCheck");
+            StartCoroutine(nameof(DoCheck));
             secLeft = durationOfGame;
             timerDisplay.text = "Time: " + secLeft;
         }
-        }
+    }
 
 
 
@@ -46,10 +46,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timerDisplay) { 
-        //Update Score
-        textDisplayBlue.text = "Blue Score: " + blueScore;
-        textDisplayRed.text = "Red Score: " + redScore;
+        if (timerDisplay)
+        {
+            //Update Score
+            textDisplayBlue.text = "Blue Score: " + blueScore;
+            textDisplayRed.text = "Red Score: " + redScore;
             totalSteps.text = " ";
             episodeSteps.text = "EpisodeSteps: " + envConfig.playerAgent.StepCount;
         }
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
         if (redScore >= 3)
         {
             PlayerAgent playerAgent = Player.GetComponent<PlayerAgent>();
-            playerAgent.AddReward(playerAgent.rewardWinningGame);
+            playerAgent.AddReward(playerAgent.rewardWinningGame / (playerAgent.CurrentEpisodeSteps / 2500));
             playerAgent.EndEpisode();
             print("AGENT HAS BEATED THE GAME");
         }
@@ -66,11 +67,12 @@ public class GameManager : MonoBehaviour
         if (secLeft <= 0 && !gameOver)
         {
             gameOver = true;
-            StopCoroutine("DoCheck");
+            StopCoroutine(nameof(DoCheck));
             if (redScore > blueScore)
             {
                 print("Red won");
-            } else if (blueScore > redScore)
+            }
+            else if (blueScore > redScore)
             {
                 print("Blue won");
             }
@@ -80,7 +82,7 @@ public class GameManager : MonoBehaviour
             }
             ResetScore();
         }
-        
+
     }
 
     IEnumerator DoCheck()
@@ -94,7 +96,7 @@ public class GameManager : MonoBehaviour
             timerDisplay.text = "Time: " + secLeft;
         }
     }
-    
+
     public void ResetScore()
     {
         StopAllCoroutines(); //One Coroutine already running
@@ -103,7 +105,7 @@ public class GameManager : MonoBehaviour
         secLeft = durationOfGame;
         timer = 0;
         gameOver = false;
-        if(activeTimer) StartCoroutine("DoCheck");
-    } 
+        if (activeTimer) StartCoroutine(nameof(DoCheck));
+    }
 
 }

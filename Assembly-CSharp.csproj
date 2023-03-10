@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerAgent.cs" />
     <Compile Include="Assets\Scripts\Treasure.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Prison.cs" />
     <Compile Include="Assets\Scripts\TreasureChamber.cs" />
     <Compile Include="Assets\Scripts\EnvConfig.cs" />

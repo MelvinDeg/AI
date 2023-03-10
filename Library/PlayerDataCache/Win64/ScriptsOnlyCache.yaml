@@ -18,10 +18,16 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
   sceneClasses:
     Assets/Scenes/SampleScene_no_bluePlayer.unity:
     - Class: 1
@@ -67,7 +73,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2240}
     - Class: 114
+      Script: {instanceID: 2648}
+    - Class: 114
       Script: {instanceID: 2760}
+    - Class: 114
+      Script: {instanceID: 2810}
+    - Class: 114
+      Script: {instanceID: 2866}
+    - Class: 114
+      Script: {instanceID: 3046}
+    - Class: 114
+      Script: {instanceID: 3314}
     - Class: 114
       Script: {instanceID: 3376}
     - Class: 114
@@ -95,6 +111,12 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -634,4 +656,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene_no_bluePlayer.unity
-  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_291/AI.exe
+  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_298/AI.exe
