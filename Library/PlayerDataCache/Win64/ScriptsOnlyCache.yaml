@@ -65,29 +65,29 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1880}
+      Script: {instanceID: 1882}
     - Class: 114
-      Script: {instanceID: 2074}
+      Script: {instanceID: 2076}
     - Class: 114
-      Script: {instanceID: 2088}
+      Script: {instanceID: 2090}
     - Class: 114
-      Script: {instanceID: 2240}
+      Script: {instanceID: 2242}
     - Class: 114
-      Script: {instanceID: 2648}
+      Script: {instanceID: 2650}
     - Class: 114
-      Script: {instanceID: 2760}
+      Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2810}
+      Script: {instanceID: 2812}
     - Class: 114
-      Script: {instanceID: 2866}
+      Script: {instanceID: 2868}
     - Class: 114
-      Script: {instanceID: 3046}
+      Script: {instanceID: 3048}
     - Class: 114
-      Script: {instanceID: 3314}
+      Script: {instanceID: 3316}
     - Class: 114
-      Script: {instanceID: 3376}
+      Script: {instanceID: 3378}
     - Class: 114
-      Script: {instanceID: 3404}
+      Script: {instanceID: 3406}
     - Class: 114
       Script: {instanceID: 4336}
     - Class: 114
@@ -199,7 +199,7 @@ ScriptsOnlyBuild:
     className: BehaviorParameters
   - hash:
       serializedVersion: 2
-      Hash: 24939fd9985062615d16367e93422c64
+      Hash: 3b821a7732b99f5d19436fbd502a9266
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerAgent
@@ -481,12 +481,6 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 7aacb24e533923360640edebaf6415b2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerMovement
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -656,4 +650,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene_no_bluePlayer.unity
-  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_298/AI.exe
+  playerPath: C:/Users/Melvin/Documents/Code/mla3/Build/AI_299/AI.exe
