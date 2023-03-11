@@ -23,14 +23,14 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI totalSteps;
     public TextMeshProUGUI episodeSteps;
 
-    private EnvConfig envConfig;
+    private ArenaConfig arenaConfig;
 
     public int prisionTime = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        envConfig = gameObject.GetComponentInParent<EnvConfig>();
+        arenaConfig = gameObject.GetComponentInParent<ArenaConfig>();
 
         if (activeTimer)
         {
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             textDisplayBlue.text = "Blue Score: " + blueScore;
             textDisplayRed.text = "Red Score: " + redScore;
             totalSteps.text = " ";
-            episodeSteps.text = "EpisodeSteps: " + envConfig.playerAgent.StepCount;
+            episodeSteps.text = "EpisodeSteps: ";
         }
         //If no treasures left, End Episode
         if (redScore >= 3)

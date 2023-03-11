@@ -60,8 +60,9 @@
     <Compile Include="Assets\Scripts\Treasure.cs" />
     <Compile Include="Assets\Scripts\Prison.cs" />
     <Compile Include="Assets\Scripts\TreasureChamber.cs" />
-    <Compile Include="Assets\Scripts\EnvConfig.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Rays.cs" />
+    <Compile Include="Assets\Scripts\ArenaConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

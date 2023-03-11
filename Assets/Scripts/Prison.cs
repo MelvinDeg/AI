@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Prison : MonoBehaviour
 {
-    private GameManager gameManager;
-    private EnvConfig envConfig;
+    private ArenaConfig arenaConfig;
     //TODO: Run prision Stuff
 
     // Start is called before the first frame update
     void Start()
     {
 
-        envConfig = gameObject.GetComponentInParent<EnvConfig>();
-        gameManager = envConfig.gameManager;
+        arenaConfig = gameObject.GetComponentInParent<ArenaConfig>();
+        
 
     }
 
@@ -59,7 +58,7 @@ public class Prison : MonoBehaviour
         //FIXED: Bug position
         gameObject.transform.localPosition = new Vector3(cell, 4.5f, 19);
         rigidbody.constraints = RigidbodyConstraints.FreezePosition;
-        yield return new WaitForSeconds(gameManager.prisionTime); //Time in cell
+        yield return new WaitForSeconds(arenaConfig.prisionTime); //Time in cell
         gameObject.transform.localPosition = new Vector3(side, 1.5f, 0);
         rigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
     }

@@ -12,16 +12,14 @@ public class TreasureChamber : MonoBehaviour
     [HideInInspector]
     public string chamberColor;
     public GameObject[] tresures = new GameObject[AmountOfTresures];
-    GameManager gameManager;
-    private EnvConfig envConfig;
+    ArenaConfig arenaConfig;
 
     // Start is called before the first frame update
     void Start()
     {
         chamberColor = gameObject.tag;
+        arenaConfig = gameObject.GetComponentInParent<ArenaConfig>();
 
-        envConfig = gameObject.GetComponentInParent<EnvConfig>();
-        gameManager = envConfig.gameManager;
     }
 
     // Update is called once per frame
@@ -40,7 +38,7 @@ public class TreasureChamber : MonoBehaviour
 
         // Checks that the treasureChamber has the correct tag and that the player does not already carry one treasure
 
-        if (gameObject.CompareTag(player.chamberColour + "C") && player.hasTreasure)
+        if (gameObject.CompareTag(player.TeamColor + "C") && player.hasTreasure)
         {
             print("plus 1");
 
@@ -49,23 +47,23 @@ public class TreasureChamber : MonoBehaviour
             if (other.CompareTag("BluePlayer"))
             {
 
-                gameManager.blueScore += 1;
-
+                arenaConfig.blueScore += 1;
+                arenaConfig.blueTeamTreasure = false;
             }
             else
             {
-                gameManager.redScore += 1;
+                arenaConfig.redScore += 1;
+                arenaConfig.redTeamTreasure = false;
 
             }
             //Remove Reference to Treasure
             player.treasure = null;
             player.hasTreasure = false;
             player.treasureDisplay.SetActive(false);
-            //if(gameObject.CompareTag(player.targetColour + "c"))
         }
 
 
-        else if (gameObject.CompareTag(player.targetColour + "C") && !player.hasTreasure)
+        else if (!gameObject.CompareTag(player.TeamColor + "C") && !player.hasTreasure)
         {
 
             foreach (GameObject treasure in tresures)
@@ -79,6 +77,14 @@ public class TreasureChamber : MonoBehaviour
                     // Activates the visual cube that the player carries and hides the other one
                     treasure.SetActive(false);
                     player.hasTreasure = true;
+                    if (other.CompareTag("BluePlayer"))
+                    {
+                        arenaConfig.blueTeamTreasure = true;
+                    }
+                    else
+                    {
+                        arenaConfig.redTeamTreasure = true;
+                    }
                     player.treasureDisplay.SetActive(true);
                     break;
 
@@ -86,7 +92,6 @@ public class TreasureChamber : MonoBehaviour
 
             }
 
-            print("Blue Base");
         }
     }
 }
