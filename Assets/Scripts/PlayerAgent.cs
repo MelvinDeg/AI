@@ -93,7 +93,7 @@ public class PlayerAgent : Agent
 
     private void Start()
     {
-        CurrentEpisodeSteps = Academy.Instance.StepCount;
+        
         arenaConfig = gameObject.GetComponentInParent<ArenaConfig>();
 
         arenaConfig.Initialize();
@@ -266,11 +266,16 @@ public class PlayerAgent : Agent
         //Observe whether red team agent has a treasure (1 observation)
         sensor.AddObservation(arenaConfig.redTeamTreasure);
 
-        sensor.AddObservation(arenaConfig.redScore);
+        //(1 observation)
+        //sensor.AddObservation(arenaConfig.redScore);
 
+        //(1 observation)
         sensor.AddObservation(arenaConfig.blueScore);
 
-        //14 total observations
+        //(1 observation)
+        sensor.AddObservation(BehaviorParameters.TeamId);
+
+        //15 total observations
     }
 
     /// <summary>
@@ -313,6 +318,7 @@ public class PlayerAgent : Agent
     /// </summary>
     private void Update()
     {
+        CurrentEpisodeSteps = Academy.Instance.EpisodeCount;
         //TODO: Remove This.
         //TODO: Draw a line to HomeChamber and Target Chamber
 
@@ -326,9 +332,6 @@ public class PlayerAgent : Agent
             Debug.DrawLine(transform.position, arenaConfig.RedChamber.transform.position, Color.green);
             Debug.DrawLine(transform.position, arenaConfig.BlueChamber.transform.position, Color.red);
         }
-
-
-        CurrentEpisodeSteps = Academy.Instance.StepCount;
 
 
         //float targetchamberDir = Vector3.Dot(transform.forward, (chamberT.transform.localPosition - transform.localPosition).normalized);
