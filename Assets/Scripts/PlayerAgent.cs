@@ -86,6 +86,9 @@ public class PlayerAgent : Agent
     public float rewardWinningGame = 20f;
 
     [HideInInspector]
+    public float rewardGettingCaught = -0.4f; //Not Used
+
+    [HideInInspector]
     public float CurrentEpisodeSteps;
 
     private GameObject chamberT;
