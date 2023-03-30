@@ -76,8 +76,6 @@ public class PlayerAgent : Agent
     //Rewards
 
     [HideInInspector]
-    public float rewardInsideTreasureChamber = 0.5f;
-    [HideInInspector]
     public float rewardtakingTreasureFromTreasureChamber = 2f;
     [HideInInspector]
     public float rewardtakingTreasureToOwnTreasureChamber = 4f;
@@ -85,21 +83,7 @@ public class PlayerAgent : Agent
     public float penaltyRunningIntoBoundary = -0.2f;
 
     [HideInInspector]
-
-    public float rewardGettingCaught = -0.4f; //Is not Used because I want to make the training enviroment more likly to succeed.
-    [HideInInspector]
     public float rewardWinningGame = 20f;
-
-    /*[HideInInspector]
-    public float rewardMoving = 0.0002f; 
-
-    [HideInInspector]
-    public float penaltyTreasureInEnemyAreaWithTreasure = -0.0001f;
-
-    //AI_237 - AI_238 rewardMoving var satt till x= 0.005 max reward 25f 
-
-    //5000*x = 1
-    // x= 0.005 */
 
     [HideInInspector]
     public float CurrentEpisodeSteps;
@@ -186,25 +170,6 @@ public class PlayerAgent : Agent
 
 
         if (frozen) return;
-
-        static void dfasfd()
-        {
-            /*if (InEnemyAreaWithTreasure)
-{
-    print("has Treasure");
-    AddReward(penaltyTreasureInEnemyAreaWithTreasure);
-} */
-
-
-            /*if (hasTreasure)
-            {
-                AddReward(Vector3.Dot(velocity_direction, (chamberD.transform.localPosition - transform.localPosition).normalized) * rewardMoving );
-
-            } else
-            {
-               AddReward(Vector3.Dot(velocity_direction, (chamberT.transform.localPosition - transform.localPosition).normalized * rewardMoving ));
-            }  */
-        }
 
         // Gives the current speed of the player, used to create a terminal velocity for the player
         currentVelosity = rigidbody.velocity.magnitude;
