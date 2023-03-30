@@ -102,7 +102,7 @@ public class PlayerAgent : Agent
     // x= 0.005 */
 
     [HideInInspector]
-    public int CurrentEpisodeSteps;
+    public float CurrentEpisodeSteps;
 
     private GameObject chamberT;
     private GameObject chamberD;
