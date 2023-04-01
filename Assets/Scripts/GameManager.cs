@@ -49,10 +49,10 @@ public class GameManager : MonoBehaviour
         if (timerDisplay)
         {
             //Update Score
-            textDisplayBlue.text = "Blue Score: " + blueScore;
-            textDisplayRed.text = "Red Score: " + redScore;
-            totalSteps.text = " ";
-            episodeSteps.text = "EpisodeSteps: " + envConfig.playerAgent.StepCount;
+            //textDisplayBlue.text = "Blue Score: " + blueScore;
+            textDisplayRed.text = "Score: " + redScore;
+            //totalSteps.text = " ";
+            timerDisplay.text = "EpisodeTime: " + envConfig.playerAgent.StepCount/5;
         }
         //If no treasures left, End Episode
         if (redScore >= 3)
