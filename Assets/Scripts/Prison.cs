@@ -29,7 +29,7 @@ public class Prison : MonoBehaviour
     {
         PlayerAgent playerAgent = other.GetComponent<PlayerAgent>();
         playerAgent.inPrision = true;
-        print("IN PRISON");
+        //print("IN PRISON");
 
     }
     /// <summary>
@@ -40,7 +40,7 @@ public class Prison : MonoBehaviour
     {
         PlayerAgent playerAgent = other.GetComponent<PlayerAgent>();
         playerAgent.inPrision = false;
-        print("NOT IN PRISON");
+        //print("NOT IN PRISON");
     }
     /// <summary>
     /// Time in prision

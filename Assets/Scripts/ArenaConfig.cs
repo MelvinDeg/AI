@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
+using TMPro;
 
 public class ArenaConfig : MonoBehaviour
 {
@@ -40,9 +41,16 @@ public class ArenaConfig : MonoBehaviour
 
     private EnvironmentParameters m_EnvParameters;
     private StatsRecorder m_StatsRecorder;
+
     public int StepCount;
     [HideInInspector]
     public float prisionTime = 10;
+
+    //Display
+    [Header("Canvas")]
+    public TextMeshProUGUI timerDisplay;
+    public TextMeshProUGUI textDisplayBlue;
+    public TextMeshProUGUI textDisplayRed;
 
     /// <summary>
     /// Runs one Time to Setup Relation in one Enviroment
@@ -58,20 +66,24 @@ public class ArenaConfig : MonoBehaviour
 
     private void Update()
     {
+        timerDisplay.text = "EpisodeTime: " + redTeam[0].StepCount / 5;
+        textDisplayRed.text = "Red Score: " + redScore;
+        textDisplayBlue.text = "Blue Score: " + blueScore;
+
 
         if (redScore >= 3) { 
         
-            print(redTeam[0].rewardWinningGame);
-            redTeam[0].AddReward(redTeam[0].rewardWinningGame / (redTeam[0].StepCount / 2500));
-            BlueTeam[0].AddReward(-BlueTeam[0].rewardWinningGame / (BlueTeam[0].StepCount / 2500));
+            
+            redTeam[0].AddReward(redTeam[0].rewardWinningGame / ((float)redTeam[0].StepCount / 2500));
+            BlueTeam[0].AddReward(-BlueTeam[0].rewardWinningGame / ((float)BlueTeam[0].StepCount / 2500));
             redTeam[0].EndEpisode();
             BlueTeam[0].EndEpisode();
             print("RED AGENT HAS BEATED THE GAME");
         }
         else if (blueScore >= 3)
         {
-            BlueTeam[0].AddReward(BlueTeam[0].rewardWinningGame / (BlueTeam[0].StepCount / 2500));
-            redTeam[0].AddReward(-redTeam[0].rewardWinningGame / (redTeam[0].StepCount / 2500));
+            BlueTeam[0].AddReward(BlueTeam[0].rewardWinningGame / ((float)BlueTeam[0].StepCount / 2500));
+            redTeam[0].AddReward(-redTeam[0].rewardWinningGame / ((float)redTeam[0].StepCount / 2500));
             BlueTeam[0].EndEpisode();
             redTeam[0].EndEpisode();
             print("BLUE AGENT HAS BEATED THE GAME");

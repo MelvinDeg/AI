@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/SampleScene_no_bluePlayer.unity
+    path: Assets/Scenes/FinalScene.unity
     guid: 147f56fd796863b48b5ee412fdddb699
   m_configObjects: {}

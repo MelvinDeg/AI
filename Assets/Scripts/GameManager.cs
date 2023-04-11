@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             textDisplayBlue.text = "Blue Score: " + blueScore;
             textDisplayRed.text = "Red Score: " + redScore;
             totalSteps.text = " ";
-            episodeSteps.text = "EpisodeSteps: ";
+            //episodeSteps.text = "EpisodeSteps: ";
         }
         //If no treasures left, End Episode
         if (redScore >= 3)

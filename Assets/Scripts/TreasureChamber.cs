@@ -40,7 +40,7 @@ public class TreasureChamber : MonoBehaviour
 
         if (gameObject.CompareTag(player.TeamColor + "C") && player.hasTreasure)
         {
-            print("plus 1");
+            //print("plus 1");
 
 
             player.AddReward(player.rewardtakingTreasureToOwnTreasureChamber);

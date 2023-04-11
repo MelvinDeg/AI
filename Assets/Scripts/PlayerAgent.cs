@@ -52,7 +52,7 @@ public class PlayerAgent : Agent
 
     [HideInInspector]
     public string TeamColor;
-    
+
 
     //The rigidbody of the agent
     new private Rigidbody rigidbody;
@@ -68,9 +68,9 @@ public class PlayerAgent : Agent
     //Rewards
 
     [HideInInspector]
-    public float rewardtakingTreasureFromTreasureChamber = 2f / 10;
+    public float rewardtakingTreasureFromTreasureChamber = 2f/10;
     [HideInInspector]
-    public float rewardtakingTreasureToOwnTreasureChamber = 4f / 10;
+    public float rewardtakingTreasureToOwnTreasureChamber = 4f/10;
     [HideInInspector]
     public float penaltyRunningIntoBoundary = -0.2f/10;
 
@@ -79,8 +79,8 @@ public class PlayerAgent : Agent
     public float PenaltyGettingCaught = -0.4f/10;
     [HideInInspector]
     public float rewardWinningGame = 20f/10;
-
     
+
     public int CurrentEpisodeSteps;
 
     //Whether the agent is frozen (intentionally not moving)
@@ -93,7 +93,7 @@ public class PlayerAgent : Agent
 
     private void Start()
     {
-        CurrentEpisodeSteps = Academy.Instance.StepCount;
+        print(rewardWinningGame + "fff");
         arenaConfig = gameObject.GetComponentInParent<ArenaConfig>();
 
         arenaConfig.Initialize();
@@ -112,12 +112,12 @@ public class PlayerAgent : Agent
         if (BehaviorParameters.TeamId == 0)
         {
             TeamColor = "Red";
-            print("RED");
+            //print("RED");
         }
         else
         {
             TeamColor = "Blue";
-            print("BLUE");
+            //print("BLUE");
         }
 
 
@@ -266,11 +266,16 @@ public class PlayerAgent : Agent
         //Observe whether red team agent has a treasure (1 observation)
         sensor.AddObservation(arenaConfig.redTeamTreasure);
 
+        //(1 observation)
         sensor.AddObservation(arenaConfig.redScore);
 
+        //(1 observation)
         sensor.AddObservation(arenaConfig.blueScore);
 
-        //14 total observations
+        //(1 observation)
+        sensor.AddObservation(BehaviorParameters.TeamId);
+
+        //15 total observations
     }
 
     /// <summary>
@@ -313,6 +318,7 @@ public class PlayerAgent : Agent
     /// </summary>
     private void Update()
     {
+        CurrentEpisodeSteps = Academy.Instance.EpisodeCount;
         //TODO: Remove This.
         //TODO: Draw a line to HomeChamber and Target Chamber
 
@@ -326,9 +332,6 @@ public class PlayerAgent : Agent
             Debug.DrawLine(transform.position, arenaConfig.RedChamber.transform.position, Color.green);
             Debug.DrawLine(transform.position, arenaConfig.BlueChamber.transform.position, Color.red);
         }
-
-
-        CurrentEpisodeSteps = Academy.Instance.StepCount;
 
 
         //float targetchamberDir = Vector3.Dot(transform.forward, (chamberT.transform.localPosition - transform.localPosition).normalized);
@@ -361,7 +364,7 @@ public class PlayerAgent : Agent
         }
         else if (other.collider.CompareTag("Boundary"))
         {
-            print("Penalty Border");
+            //print("Penalty Border");
             AddReward(penaltyRunningIntoBoundary);
         }
 
@@ -397,6 +400,5 @@ public class PlayerAgent : Agent
     } */
 
 }
-
 
 
